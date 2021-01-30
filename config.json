@@ -1,0 +1,8 @@
+{
+    "name": "个人知识库",
+    "ver": "1.0",
+    "logo": "amWiki/images/logo.png",
+    "page-mounts": true,
+    "testing": true,
+    "github-url": "https://github.com/gunge204/gunge204.github.io"
+}
