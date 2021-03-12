@@ -1,7 +1,7 @@
-# ESP32学习笔记（3）WIFI实现
+# ESP32学习笔记（3）WIFI实现demo代码
 >维护人员：**80后老男孩**  
 >创建时间：2021-03-11  
->本文已发表于csdn博客[ESP32学习笔记（1）开发环境的搭建](https://blog.csdn.net/weixin_41034400/article/details/113664468)
+>本文已发表于csdn博客[ESP32学习笔记（3）WIFI实现demo代码](https://blog.csdn.net/weixin_41034400/article/details/114691945)
 
 
 
@@ -22,9 +22,10 @@ Wi-Fi 库支持配置及监控 ESP32 Wi-Fi 连网功能。
 
 # STA模式demo代码分析
 
-我们把esp32当成一个终端设备，让他用wifi去连接我们家里的路由器，下面分析demo代码，给出代码的中文解释方便理解
+我们把esp32当成一个终端设备，让他用wifi去连接我们家里的路由器，下面分析demo代码，给出代码的中文解释方便理解。  
+初次接触新东西的最好和最快的办法就是详细学习和分析官方给的demo，官方写的东西一般也比较正规，可读性很强，**阅读高手的代码对我们代码能力的提高也有很大帮助。**
 
-代码在我们下载安装的\\esp-idf\\examples\\wifi\\getting_started\\station
+demo代码在我们下载安装的\\esp-idf\\examples\\wifi\\getting_started\\station
 
 **其中有几个函数和变量类型的概念需要首先熟悉一下，以方便下面代码的阅读：**
 
@@ -105,8 +106,6 @@ xTicksToWait ：阻塞等待最长时间。
 
 esp32提供了esp_event库,用于替代freertos中的事件。并且Wi-Fi、以太网、IP等事件会被发送到此库提供的默认事件循环中。
 
-什么是事件？ 什么是事件处理机制？
-
 事件和信号其实是同样的道理，来了一个事件（或者信号）去执行一个函数去处理一些事情，类似于单片机机的中断。
 
 使用事件和事件处理函数解决问题的方式就成为事件处理机制。
@@ -165,7 +164,7 @@ esp_err_tesp_event_handler_register(esp_event_base_tevent_base, int32_t event_id
 
 3. 触发事件，执行事件处理函数；
 
-**wifi和ip事件包含的内容：**
+**库中的wifi和ip事件包含的内容：**
 
 ```c
 const char * WIFI_EVENT = "wifi_event";
